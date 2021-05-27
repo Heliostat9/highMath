@@ -1,10 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {Text,View,ScrollView,TextInput,Button} from 'react-native';
 import Dates from 'react-native-dates';
-import ArticleNew from '../blocks/articleNew';
+import ArticleTest from '../blocks/articleTest';
 import DropDownPicker from 'react-native-dropdown-picker';
+
+import {TestScreen} from '../screens/test-screen';
 import { useIsFocused } from "@react-navigation/native";
-function TestsScreen() {
+import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+const Stack = createStackNavigator();
+
+function TestsScreen({navigation}) {
     const [query, setQuery] = useState('');
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('Все темы');
@@ -37,11 +43,13 @@ function TestsScreen() {
         }
     
         return (
+            
             <View style={{
                 marginTop: 50,
                 flex: 1,
                 flexDirection: 'row'
             }}>
+                
                 <ScrollView style={{
                     width: '65%',
                     paddingRight: 5,
@@ -73,9 +81,10 @@ function TestsScreen() {
                     {
     
                     conter.filter(item => item.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) > -1).map(item => {
-                    const {_id,title, category, imgSrc, desc} = item;
-                    return <ArticleNew key={_id} title={title} category={category} desc={desc} imgSrc={imgSrc} />
-                                    })}              
+                    const {_id,title, category, imgSrc, desc, tests,name} = item;
+                    
+                    return (<><ArticleTest navigation={navigation} tests={tests} name={name} key={_id} title={title} category={category} desc={desc} imgSrc={imgSrc} />
+                    </>)})}              
                     </View>
                 </ScrollView>
                 <View style={{
@@ -109,6 +118,7 @@ function TestsScreen() {
                     </View>
                 </View>
             </View>
+           
         )
     
 }
