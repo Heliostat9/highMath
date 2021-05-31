@@ -6,31 +6,19 @@
  * @flow strict-local
  */
 
-import React, {useState, useContext} from 'react';
-
-import {
-  Alert,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-  Image
-} from 'react-native';
+import React, {useState} from 'react';
 
 import {LecturesScreen, TestsScreen,TestScreen, HomeScreen, LogoutScreen, SignInScreen, SignUpScreen, ControlScreen, PracticeScreen, ProfileScreen} from './components/screens/';
 import Header from './components/header';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-const Stack = createStackNavigator();
 import {LoginContext} from './login-context';
 const Drawer = createDrawerNavigator();
 
 
 const App = () => {
-  const [log, setLog] = useState(true);
+  const [log, setLog] = useState();
   return (
       <NavigationContainer>
         <LoginContext.Provider value={[log, setLog]}>
@@ -69,10 +57,10 @@ const App = () => {
                   {
                   log ? <>
                   <Drawer.Screen name="Тесты" component={TestsScreen} />
-                  <Drawer.Screen name="Тест" component={TestScreen} />
+              
                   <Drawer.Screen name="Практические" component={PracticeScreen} />
                   <Drawer.Screen name="Контрольные" component={ControlScreen} />
-                  <Drawer.Screen name="Профиль" component={ProfileScreen} />
+                 
                   <Drawer.Screen name="Выйти" component={LogoutScreen} />
                   
                 </> : <>

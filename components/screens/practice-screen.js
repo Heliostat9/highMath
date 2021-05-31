@@ -49,7 +49,7 @@ function PracticeScreen() {
                 }}>
                     <View>
                         <TextInput 
-                        placeholder="Поиск по лекциям"
+                        placeholder="Поиск по практическим"
                         style={{
                             borderRadius: 5,
                             paddingTop: 10,

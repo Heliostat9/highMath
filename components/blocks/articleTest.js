@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {ScrollView,View, Text,ImageBackground,TouchableOpacity, Linking,TextInput,Image,Pressable, Alert} from 'react-native';
-import styled from 'rn-css';
+
 import { NavigationContainer } from '@react-navigation/native';
 
 

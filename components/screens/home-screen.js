@@ -9,7 +9,9 @@ function HomeScreen() {
     const isFocused = useIsFocused();
     useEffect(() => {
         if (content) {
-            fetch('http://localhost:3000/')
+            fetch('http://localhost:3000/', {
+                mode: 'no-cors',
+            })
             .then(res => res.json())
             .then(res => setContent(res));
         }     
@@ -46,7 +48,7 @@ function HomeScreen() {
                             paddingLeft: 60,
                             paddingRight: 60
                         }}>
-                            Электронная методичка по элементам высшей математики
+                            Электронная учебное пособие по элементам высшей математики
                         </Text>
                     </ImageBackground>
 

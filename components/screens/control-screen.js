@@ -44,7 +44,7 @@ function ControlScreen() {
                 }}>
                     <View>
                         <TextInput 
-                        placeholder="Поиск по лекциям"
+                        placeholder="Поиск по контрольным"
                         style={{
                             borderRadius: 5,
                             paddingTop: 10,
